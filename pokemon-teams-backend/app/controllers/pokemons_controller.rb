@@ -2,9 +2,10 @@ require 'faker'
 
 class PokemonsController < ApplicationController
   def create
+    
     unless pokemon_params[:trainer_id].nil?
       default = {}
-
+      
       if Trainer.find(pokemon_params[:trainer_id]).pokemons.count < 6
         if pokemon_params[:nickname].nil?
           default[:nickname] = Faker::Name.first_name
